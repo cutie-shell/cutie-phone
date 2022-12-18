@@ -1,0 +1,10 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Version=1.2
+Type=Application
+Name=Phone
+Exec=/usr/bin/cutie-phone
+TryExec=/usr/bin/cutie-phone
+Icon=cutie-phone
+Terminal=false
+StartupNotify=false

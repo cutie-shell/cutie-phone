@@ -1,0 +1,19 @@
+Source: cutie-phone
+Section: libs
+Maintainer: Erik Inkinen <erik.inkinen@gmail.com>
+Priority: optional
+Build-Depends: pkg-kde-tools,
+               qt5-qmake,
+               qtbase5-dev,
+               pkg-config,
+               qtdeclarative5-dev,
+               libqt5dbus5,
+               qttools5-dev-tools
+Standards-Version: 4.5.1
+
+Package: cutie-phone
+Architecture: any
+Multi-Arch: foreign
+Pre-Depends: ${misc:Pre-Depends}
+Depends: ${misc:Depends}, ${shlibs:Depends}, qml-module-cutie
+Description: This package contains Cutie Phone app.

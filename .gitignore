@@ -1,0 +1,12 @@
+*.o
+.qmake.stash
+Makefile
+qrc_*.cpp
+moc_*
+cutie-settings
+*interface.cpp
+*interface.h
+*adaptor.cpp
+*adaptor.h
+*.so
+build
