@@ -7,10 +7,16 @@ CutiePage {
 	height: mainWindow.height
 	property var lineId: ""
 	property var call: null
+	property bool wasIncoming: false
+	property bool answered: false
 
 	Component.onDestruction: {
 		root.call.modem.audioMode = 0;
 		root.call.hangup();
+	}
+
+	Component.onCompleted: {
+		root.wasIncoming = root.call.data["State"] === "incoming";
 	}
 
 	CutiePageHeader {
@@ -30,6 +36,7 @@ CutiePage {
 		onClicked: {
 			root.call.modem.audioMode = 1;
 			root.call.answer();
+			root.answered = true;
 		}
 	}
 
@@ -59,6 +66,19 @@ CutiePage {
 			else {
 				toastHandler.show("Call ended by the network", 2000);
 			}
+
+			let data = logStore.data;
+			let logEntries = data.entries;
+			if (!logEntries) logEntries = [];
+			logEntries.push({
+				lineId: root.lineId,
+				time:  Date.now(),
+				type: (root.wasIncoming 
+				? (root.answered ? "Incoming" : "Missed")
+				: "Outgoing")
+			});
+			data.entries = logEntries;
+			logStore.data = data;
 
 			pageStack.pop(root);
 		}

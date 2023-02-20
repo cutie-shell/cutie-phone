@@ -44,7 +44,7 @@ CutieWindow {
 		CutieListView {
 			id: lView
 			anchors.fill: parent
-			model: logStore.data.threads
+			model: logStore.data.entries
 
 			header: CutiePageHeader {
 				id: header
@@ -63,14 +63,22 @@ CutieWindow {
 			delegate: CutieListItem {
 				width: parent ? parent.width : 0
 				id: litem
-				text: "placeholder"
+				text: modelData.lineId
+				subText: qsTr("%1 - %2").arg(modelData.type).arg((new Date(modelData.time)).toString())
+				icon.source: "qrc:/icons/" + modelData.type + ".svg"
+				iconOverlay: false
+
+				onClicked: {
+					CutieModemSettings.modems[0].dial(modelData.lineId);
+					CutieModemSettings.modems[0].audioMode = 1;
+				}
 
 				menu: CutieMenu {
 					CutieMenuItem {
 						text: qsTr("Delete")
 						onTriggered: {
 							let data = logStore.data;
-							data.threads.splice(index, 1);
+							data.entries.splice(index, 1);
 							logStore.data = data;
 						}
 					}

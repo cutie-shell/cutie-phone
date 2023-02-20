@@ -1,4 +1,7 @@
 <RCC>
     <qresource prefix="/icons">
+        <file>Incoming.svg</file>
+        <file>Missed.svg</file>
+        <file>Outgoing.svg</file>
     </qresource>
 </RCC>
