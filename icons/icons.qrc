@@ -3,5 +3,6 @@
         <file>Incoming.svg</file>
         <file>Missed.svg</file>
         <file>Outgoing.svg</file>
+        <file>ringtone.wav</file>
     </qresource>
 </RCC>

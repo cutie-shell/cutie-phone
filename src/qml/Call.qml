@@ -1,5 +1,6 @@
 import Cutie 1.0
 import QtQuick 2.14
+import QtMultimedia 5.15
 
 CutiePage {
 	id: root
@@ -17,7 +18,16 @@ CutiePage {
 
 	Component.onCompleted: {
 		root.wasIncoming = root.call.data["State"] === "incoming";
+		if (root.wasIncoming) {
+			callSound.play();
+		}
 	}
+
+	SoundEffect {
+        id: callSound
+        source: "qrc:/icons/ringtone.wav"
+        loops: SoundEffect.Infinite
+    }
 
 	CutiePageHeader {
 		id: header
@@ -34,6 +44,7 @@ CutiePage {
 		anchors.margins: 20
 		text: "Answer"
 		onClicked: {
+			callSound.stop();
 			root.call.modem.audioMode = 1;
 			root.call.answer();
 			root.answered = true;
@@ -49,6 +60,7 @@ CutiePage {
 		text: "Hangup"
 		color: "red"
 		onClicked: {
+			callSound.stop();
 			root.call.hangup();
 			root.call.modem.audioMode = 0;
 		}
