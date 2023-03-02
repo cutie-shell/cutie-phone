@@ -1,7 +1,7 @@
-import Cutie 1.0
-import QtQuick 2.14
-import QtQuick.Layouts 1.15
-import QtQuick.Controls 2.14
+import Cutie
+import QtQuick
+import QtQuick.Layouts
+import QtQuick.Controls
 
 CutiePage {
 	id: root

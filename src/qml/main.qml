@@ -1,5 +1,5 @@
-import Cutie 1.0
-import QtQuick 2.14
+import Cutie
+import QtQuick
 
 CutieWindow {
 	id: mainWindow

@@ -1,6 +1,6 @@
-import Cutie 1.0
-import QtQuick 2.14
-import QtMultimedia 5.15
+import Cutie
+import QtQuick
+import QtMultimedia
 
 CutiePage {
 	id: root
