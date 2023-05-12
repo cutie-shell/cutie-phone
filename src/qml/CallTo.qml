@@ -5,6 +5,11 @@ import QtQuick.Controls
 
 CutiePage {
 	id: root
+
+	Component.onCompleted: {
+		recipentText.forceActiveFocus();
+	}
+
 	CutiePageHeader {
 		id: header
 		title: qsTr("Call To")
@@ -26,6 +31,7 @@ CutiePage {
 		anchors.right: parent.right
 		anchors.margins: 20
 		onAccepted: connectbutton.clicked()
+		inputMethodHints: Qt.ImhDialableCharactersOnly
 	}
 	CutieButton {
 		id: connectbutton
@@ -33,7 +39,8 @@ CutiePage {
 		anchors.bottom: parent.bottom
 		anchors.left: parent.left
 		anchors.right: parent.right
-		anchors.margins: 20
+		anchors.margins: 5
+		padding: 10
 		onClicked: {
 			CutieModemSettings.modems[0].dial(recipentText.text);
 			CutieModemSettings.modems[0].audioMode = 1;
