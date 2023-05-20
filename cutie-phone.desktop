@@ -8,3 +8,5 @@ TryExec=/usr/bin/cutie-phone
 Icon=cutie-phone
 Terminal=false
 StartupNotify=false
+Comment=Calls
+Categories=Network;AudioVideo;Audio
