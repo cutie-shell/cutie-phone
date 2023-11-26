@@ -20,5 +20,9 @@ Package: cutie-phone
 Architecture: any
 Multi-Arch: foreign
 Pre-Depends: ${misc:Pre-Depends}
-Depends: ${misc:Depends}, ${shlibs:Depends}, qml6-module-cutie
+Depends: ${misc:Depends}, 
+         ${shlibs:Depends}, 
+         qml6-module-cutie,
+         cutie-ongoing-call,
+         cutie-phone-daemon
 Description: This package contains Cutie Phone app.

@@ -1,7 +1,6 @@
 <RCC>
     <qresource prefix="/">
         <file>main.qml</file>
-        <file>Call.qml</file>
         <file>CallTo.qml</file>
     </qresource>
 </RCC>

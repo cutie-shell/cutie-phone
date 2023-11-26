@@ -5,36 +5,11 @@ CutieWindow {
 	id: mainWindow
 	width: 400
 	height: 800
-	visible: false
 	title: qsTr("Phone")
-
-	onClosing: {
-		visible = false;
-		close.accepted = false;
-	}
-
-	Component.onCompleted: {
-		CutieModemSettings.modems.forEach((m) => {
-			m.newCall.connect(newCall);
-		});
-	}
-
-	function view(dialno) {
-		visible = true;
-		if (dialno != "x") {
-			CutieModemSettings.modems[0].dial(dialno);
-			CutieModemSettings.modems[0].audioMode = 1;
-		}
-	}
-
-	function newCall(call) {
-		visible = true;
-		if (pageStack.depth > 1) pageStack.replaceTop("qrc:/Call.qml", { call, lineId: call.data["LineIdentification"] });
-		else pageStack.push("qrc:/Call.qml", { call, lineId: call.data["LineIdentification"] });
-	}
 
 	CutieStore {
 		id: logStore
+		appName: "cutie-phone"
 		storeName: "callLog"
 	}
 
