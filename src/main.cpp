@@ -6,6 +6,7 @@
 #include <QtQuick/QQuickItem>
 #include <QtQuick/QQuickView>
 #include <QTranslator>
+#include <QIcon>
 
 int main(int argc, char *argv[]) {
     QGuiApplication app(argc, argv);
@@ -16,6 +17,9 @@ int main(int argc, char *argv[]) {
         QString(":/i18n/cutie-phone_") + locale);
     if (translated)
         app.installTranslator(&translator);
+
+    QIcon::setThemeName("default");
+    QIcon::setThemeSearchPaths(QStringList("/usr/share/icons"));
 
     QQmlApplicationEngine engine;
     const QUrl url(QStringLiteral("qrc:/main.qml"));
