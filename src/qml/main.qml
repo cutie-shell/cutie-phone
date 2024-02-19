@@ -26,19 +26,14 @@ CutieWindow {
 			id: lView
 			anchors.fill: parent
 			model: logStore.data.entries
+			floatIconName: "input-dialpad-symbolic"
+			onFloatAction: {
+				pageStack.push("qrc:/CallTo.qml", {})
+			}
 
 			header: CutiePageHeader {
 				id: header
 				title: mainWindow.title
-			}
-
-			menu: CutieMenu {
-				CutieMenuItem {
-					text: qsTr("Show Numberpad")
-					onTriggered: {
-						pageStack.push("qrc:/CallTo.qml", {})
-					}
-				}
 			}
 
 			delegate: CutieListItem {
