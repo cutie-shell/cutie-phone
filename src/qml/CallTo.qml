@@ -6,6 +6,8 @@ import QtQuick.Controls
 CutiePage {
 	id: root
 
+	property string predial: ""
+
 	Component.onCompleted: {
 		recipentText.forceActiveFocus();
 	}
@@ -25,7 +27,7 @@ CutiePage {
 	}
 	CutieTextField {
 		id: recipentText
-		text: ""
+		text: predial
 		anchors.top: instLabel.bottom
 		anchors.left: parent.left
 		anchors.right: parent.right

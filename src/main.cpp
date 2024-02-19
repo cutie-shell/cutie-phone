@@ -5,11 +5,25 @@
 #include <QtQml/QQmlEngine>
 #include <QtQuick/QQuickItem>
 #include <QtQuick/QQuickView>
+#include <QCommandLineParser>
 #include <QTranslator>
 
 int main(int argc, char *argv[])
 {
 	QGuiApplication app(argc, argv);
+	QGuiApplication::setApplicationName("cutie-phone");
+
+	QCommandLineParser parser;
+	parser.setApplicationDescription("The Phone app for Cutie UI");
+	parser.addHelpOption();
+	parser.addPositionalArgument(
+		"number", QCoreApplication::translate(
+				  "main", "A phone number to predial."));
+	parser.process(app);
+	QStringList positionals = parser.positionalArguments();
+	QString phoneNumber;
+	if (!positionals.empty())
+		phoneNumber = positionals[0];
 
 	QString locale = QLocale::system().name();
 	QTranslator translator;
@@ -28,6 +42,10 @@ int main(int argc, char *argv[])
 		},
 		Qt::QueuedConnection);
 	engine.load(url);
+
+	if (!phoneNumber.isEmpty())
+		QMetaObject::invokeMethod(engine.rootObjects()[0], "predial",
+					  Q_ARG(QVariant, phoneNumber));
 
 	return app.exec();
 }

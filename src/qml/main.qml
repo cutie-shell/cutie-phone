@@ -7,6 +7,12 @@ CutieWindow {
 	height: 800
 	title: qsTr("Phone")
 
+	function predial(number) {
+		pageStack.push("qrc:/CallTo.qml", {
+			predial: number
+		});
+	}
+
 	CutieStore {
 		id: logStore
 		appName: "cutie-phone"
