@@ -50,8 +50,9 @@ CutieWindow {
 				iconOverlay: false
 
 				onClicked: {
-					CutieModemSettings.modems[0].dial(modelData.lineId);
-					CutieModemSettings.modems[0].audioMode = 1;
+					pageStack.push("qrc:/CallTo.qml", {
+						predial: modelData.lineId
+					});
 				}
 
 				menu: CutieMenu {
