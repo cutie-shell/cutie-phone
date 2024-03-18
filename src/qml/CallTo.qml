@@ -20,7 +20,7 @@ CutiePage {
 	CutieTextField {
 		id: recipentText
 		text: predial
-		anchors.top: header.bottom
+		anchors.bottom: connectbutton.top
 		anchors.left: parent.left
 		anchors.right: parent.right
 		anchors.margins: 20
@@ -29,5 +29,22 @@ CutiePage {
 			CutieModemSettings.modems[0].audioMode = 1;
 		}
 		inputMethodHints: Qt.ImhDialableCharactersOnly
+	}
+
+	CutieButton {
+		id: connectbutton
+		icon.name: "call-start-symbolic"
+		icon.color: Atmosphere.textColor
+		icon.width: 25
+		icon.height: 25
+		color: "green"
+		anchors.bottom: parent.bottom
+		anchors.left: parent.left
+		anchors.right: parent.right
+		anchors.margins: 5
+		height: 50
+		onClicked: {
+			recipentText.onAccepted();
+		}
 	}
 }
