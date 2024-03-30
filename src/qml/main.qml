@@ -41,7 +41,7 @@ CutieWindow {
 				id: litem
 				text: modelData.lineId
 				subText: qsTr("%1 - %2").arg(modelData.type).arg((new Date(modelData.time)).toString())
-				icon.source: "qrc:/icons/" + modelData.type + ".svg"
+				icon.source: "image://icon/call-" + modelData.type.toLowerCase() + "-symbolic"
 				iconOverlay: false
 
 				onClicked: {
