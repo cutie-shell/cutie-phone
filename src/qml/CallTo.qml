@@ -25,7 +25,8 @@ CutiePage {
 		anchors.right: parent.right
 		anchors.margins: 20
 		onAccepted: {
-			CutieModemSettings.modems[0].dial(recipentText.text);
+			let number = recipentText.text.replace(/\s+/g, '');
+			CutieModemSettings.modems[0].dial(number);
 			CutieModemSettings.modems[0].audioMode = 1;
 		}
 		inputMethodHints: Qt.ImhDialableCharactersOnly
