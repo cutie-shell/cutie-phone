@@ -18,14 +18,15 @@ CutieWindow {
 
 	function nameForNumber(number) {
 		let sender = CutiePhonenumberHelper.createPhonenumber(number, mainWindow.localISO);
-		for (let i = 0; i < contactStore.data.contacts.length; i++) {
-			let contact = contactStore.data.contacts[i]
-			let contactNumber = CutiePhonenumberHelper.createPhonenumber(
-				contact.PhoneNumber, mainWindow.localISO);
-			if (sender.locallyEqualTo(contactNumber, mainWindow.localISO)) {
-				return contact.FirstName + " " + contact.LastName;
+		if ("contacts" in contactStore.data)
+			for (let i = 0; i < contactStore.data.contacts.length; i++) {
+				let contact = contactStore.data.contacts[i]
+				let contactNumber = CutiePhonenumberHelper.createPhonenumber(
+					contact.PhoneNumber, mainWindow.localISO);
+				if (sender.locallyEqualTo(contactNumber, mainWindow.localISO)) {
+					return contact.FirstName + " " + contact.LastName;
+				}
 			}
-		}
 		return number;
 	}
 
