@@ -22,6 +22,7 @@ Pre-Depends: ${misc:Pre-Depends}
 Depends: ${misc:Depends}, 
          ${shlibs:Depends}, 
          qml6-module-cutie,
+         qml6-module-cutiephonenumber,
          cutie-ongoing-call,
          cutie-phone-daemon
 Description: This package contains Cutie Phone app.
