@@ -1,4 +1,5 @@
 import Cutie
+import Cutie.Modem
 import Cutie.Phonenumber
 import QtQuick
 
