@@ -1,6 +1,7 @@
 import Cutie
 import Cutie.Modem
 import Cutie.Phonenumber
+import Cutie.Store
 import QtQuick
 
 CutieWindow {
