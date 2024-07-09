@@ -24,6 +24,7 @@ Depends: ${misc:Depends},
          qml6-module-cutie,
          qml6-module-cutiemodem,
          qml6-module-cutiephonenumber,
+         qml6-module-cutiestore,
          cutie-ongoing-call,
          cutie-phone-daemon
 Description: This package contains Cutie Phone app.
